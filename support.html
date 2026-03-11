@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — Rally</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --green: #2D6A4F; --green-light: #52B788; --green-pale: #D8F3DC; --green-dark: #1B4332; --text: #1B1F1E; --muted: #6B7280; --border: #E5E7EB; --bg: #FFFFFF; --bg-subtle: #F8FBF9; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; }
+    .nav-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--green); display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    .nav-logo-text { font-size: 20px; font-weight: 800; color: var(--green-dark); }
+    .hero { background: linear-gradient(160deg, var(--bg-subtle) 0%, #EBF5EF 100%); padding: 60px 24px; text-align: center; }
+    .hero h1 { font-size: 40px; font-weight: 900; color: var(--green-dark); margin-bottom: 12px; }
+    .hero p { font-size: 18px; color: var(--muted); max-width: 480px; margin: 0 auto; }
+    .content { max-width: 780px; margin: 0 auto; padding: 64px 24px; }
+    .faq-section { margin-bottom: 48px; }
+    .faq-section h2 { font-size: 22px; font-weight: 800; color: var(--green-dark); margin-bottom: 24px; padding-bottom: 12px; border-bottom: 2px solid var(--green-pale); }
+    .faq-item { margin-bottom: 24px; }
+    .faq-item h3 { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .faq-item p { font-size: 15px; color: var(--muted); line-height: 1.7; }
+    .contact-box { background: var(--green-dark); color: #fff; border-radius: 20px; padding: 40px; text-align: center; margin-top: 48px; }
+    .contact-box h2 { font-size: 24px; font-weight: 800; margin-bottom: 12px; }
+    .contact-box p { opacity: 0.8; margin-bottom: 24px; font-size: 16px; }
+    .btn { display: inline-flex; align-items: center; padding: 12px 28px; border-radius: 10px; font-size: 15px; font-weight: 600; text-decoration: none; background: #52B788; color: #1B4332; }
+    footer { background: var(--green-dark); color: rgba(255,255,255,0.6); padding: 32px 24px; text-align: center; font-size: 13px; }
+    footer a { color: rgba(255,255,255,0.65); text-decoration: none; margin: 0 12px; }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="nav-logo-icon">💚</div>
+      <span class="nav-logo-text">Rally</span>
+    </a>
+    <a href="mailto:hello@rally-around.us" style="font-size:15px;font-weight:600;color:var(--green);text-decoration:none;">Contact us</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>💚 Support Centre</h1>
+  <p>Answers to common questions about using Rally.</p>
+</div>
+
+<div class="content">
+
+  <div class="faq-section">
+    <h2>Getting started</h2>
+    <div class="faq-item">
+      <h3>What is Rally?</h3>
+      <p>Rally is a care coordination app that helps you organise support for someone in need. An Organiser creates a "circle" and adds tasks, then invites helpers to claim what they can do. It removes the chaos of group chats and duplicated messages.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How do I create a circle?</h3>
+      <p>After signing in, tap "Create Circle" on your dashboard. Give your circle a name, choose the situation type, add a description, then start adding tasks. Share the invite link with anyone you want to help.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How do I join a circle as a helper?</h3>
+      <p>The organiser will share an invite link with you. Tap the link to open Rally, create a free account or sign in, and you'll be added to the circle automatically.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is Rally free?</h3>
+      <p>Yes — Rally is free for most people. The free plan includes 1 circle, up to 10 helpers, and up to 20 tasks. Rally Pro ($9/month) removes those limits for complex or ongoing situations.</p>
+    </div>
+  </div>
+
+  <div class="faq-section">
+    <h2>Tasks &amp; helpers</h2>
+    <div class="faq-item">
+      <h3>How do I add a task?</h3>
+      <p>From the Organiser dashboard, tap "+ Add Task". Choose a task type (meal, transport, errand, etc.), add a title, set the date and time, add location details if needed, and save.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I edit a task after creating it?</h3>
+      <p>Yes. Tap any task on your dashboard to open the details, then tap "Edit Task" to make changes.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What happens when a helper claims a task?</h3>
+      <p>The task moves from "Open" to "Claimed" on your dashboard, and you'll receive a notification. The helper's name will be shown on the task so you always know who has committed to helping.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can a helper release a task they can no longer do?</h3>
+      <p>Yes. Helpers can open the task and tap "Release task" to put it back in the open pool for someone else to claim.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How does Google Calendar sync work?</h3>
+      <p>When a helper claims a task, they can optionally sync it to their Google Calendar. The task will appear as a calendar event with all the details. You'll need to grant Rally permission to create calendar events the first time you use this feature.</p>
+    </div>
+  </div>
+
+  <div class="faq-section">
+    <h2>Account &amp; privacy</h2>
+    <div class="faq-item">
+      <h3>How do I sign in?</h3>
+      <p>Rally uses passwordless sign-in. Enter your email address and we'll send you a 6-digit code. Enter the code to sign in — no password to remember.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I delete my account?</h3>
+      <p>Yes. Go to Settings → scroll to the bottom → tap "Delete Account". This permanently deletes all your data including your profile, circles, and tasks. This action cannot be undone.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Who can see my information?</h3>
+      <p>Other circle members can see your display name and the tasks you've claimed or completed. Your email address is never visible to other users. We never sell your data.</p>
+    </div>
+  </div>
+
+  <div class="faq-section">
+    <h2>Rally Pro</h2>
+    <div class="faq-item">
+      <h3>What does Rally Pro include?</h3>
+      <p>Rally Pro unlocks unlimited circles, unlimited helpers, and unlimited tasks. It also gives you early access to new features as we build them.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How do I cancel my subscription?</h3>
+      <p>Rally Pro subscriptions are managed through the App Store (iOS) or Google Play (Android). To cancel, go to your device's subscription settings and cancel the Rally Pro subscription from there. Your Pro access will continue until the end of the current billing period.</p>
+    </div>
+  </div>
+
+  <div class="contact-box">
+    <h2>Still need help?</h2>
+    <p>We're a small team and we read every message. Drop us an email and we'll get back to you within 24 hours.</p>
+    <a href="mailto:hello@rally-around.us" class="btn">📧 Email us at hello@rally-around.us</a>
+  </div>
+
+</div>
+
+<footer>
+  <a href="/">Home</a>
+  <a href="/privacy">Privacy Policy</a>
+  <a href="/terms">Terms of Service</a>
+  <br><br>
+  © 2026 Kyudo Growth Pty Ltd · ABN 92 632 421 875
+</footer>
+</body>
+</html>
