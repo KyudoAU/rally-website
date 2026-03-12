@@ -1,0 +1,31 @@
+<svg width="480" height="120" viewBox="0 0 480 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- White version — for dark/green backgrounds -->
+  <defs>
+    <filter id="shW" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Heart mark (outline style) -->
+  <path
+    d="M60 91
+       C 58 90, 22 70, 20 46
+       C 18 30, 30 20, 43 21
+       C 51 22, 58 27, 60 32
+       C 62 27, 69 22, 77 21
+       C 90 20, 102 30, 100 46
+       C 98 70, 62 90, 60 91 Z"
+    fill="white"
+    filter="url(#shW)"
+  />
+
+  <!-- Wordmark -->
+  <text
+    x="122" y="76"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="52"
+    font-weight="700"
+    letter-spacing="-1.5"
+    fill="white"
+  >Rally</text>
+</svg>

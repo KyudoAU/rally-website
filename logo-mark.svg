@@ -1,0 +1,39 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3A8A6B"/>
+      <stop offset="100%" stop-color="#1E4F3A"/>
+    </linearGradient>
+    <linearGradient id="heartGrad" x1="256" y1="110" x2="256" y2="390" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#E0F4EC" stop-opacity="1"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0D2B1E" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Rounded square background -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)"/>
+
+  <!-- Subtle inner highlight -->
+  <rect width="512" height="256" rx="112" fill="white" fill-opacity="0.04"/>
+
+  <!-- Heart mark -->
+  <path
+    d="M256 388
+       C 248 382, 108 296, 100 196
+       C  94 130, 144  88, 196  94
+       C 224  97, 246 114, 256 134
+       C 266 114, 288  97, 316  94
+       C 368  88, 418 130, 412 196
+       C 404 296, 264 382, 256 388 Z"
+    fill="url(#heartGrad)"
+    filter="url(#shadow)"
+  />
+
+  <!-- Small circle trio at top — "people rallying" -->
+  <circle cx="182" cy="148" r="14" fill="white" fill-opacity="0.25"/>
+  <circle cx="256" cy="134" r="14" fill="white" fill-opacity="0.18"/>
+  <circle cx="330" cy="148" r="14" fill="white" fill-opacity="0.25"/>
+</svg>
