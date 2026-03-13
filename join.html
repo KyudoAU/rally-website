@@ -414,11 +414,12 @@
     const circlePreview = document.getElementById('circle-preview');
     const fallbackSubtitle = document.getElementById('fallback-subtitle');
 
-    // Parse token from URL: /join/TOKEN or /join?token=TOKEN
+    // Parse token from URL: /join/TOKEN or /join?token=TOKEN or hash
     const path = window.location.pathname;
     const params = new URLSearchParams(window.location.search);
+    const hash = window.location.hash.replace('#', '');
     
-    let token = params.get('token');
+    let token = params.get('token') || hash;
     
     // Check path format: /join/abc123
     const pathMatch = path.match(/^\/join\/([a-zA-Z0-9_-]+)$/);
