@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join a Rally Circle</title>
+  <meta name="description" content="You've been invited to help someone in need. Download Rally to join this care circle." />
+  <meta property="og:title" content="You're invited to Rally" />
+  <meta property="og:description" content="Someone needs your help. Join this care circle and claim tasks you can help with." />
+  <meta property="og:image" content="https://rally-around.us/images/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/svg+xml" href="/logo-mark.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:       #2D6A4F;
+      --green-light: #3A8A6B;
+      --green-dark:  #1E4F3A;
+      --cream:       #F9F5EF;
+      --green-pale:  #E4F2EB;
+      --green-accent:#52B788;
+      --text:   #1A1F1D;
+      --muted:  #6B7280;
+      --border: #E0E8E4;
+      --bg:     #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: linear-gradient(165deg, var(--cream) 0%, #EDF5F0 55%, var(--bg) 100%);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── NAV ─────────────────────────────────────────── */
+    nav {
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 66px;
+    }
+    .nav-logo {
+      display: flex; align-items: center;
+      text-decoration: none;
+    }
+    .nav-logo img { height: 38px; width: auto; display: block; }
+
+    /* ── MAIN CONTENT ────────────────────────────────── */
+    .join-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
+    }
+
+    .join-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 48px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 40px rgba(30,79,58,0.1);
+    }
+
+    .join-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--green-pale);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      margin: 0 auto 24px;
+    }
+
+    .join-card h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--green-dark);
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .join-card .subtitle {
+      font-size: 17px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .join-card .subtitle strong {
+      color: var(--green);
+    }
+
+    /* ── BUTTONS ─────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px; padding: 14px 28px; border-radius: 12px;
+      font-size: 16px; font-weight: 600; text-decoration: none;
+      transition: all 0.2s; cursor: pointer; border: none;
+      width: 100%;
+    }
+    .btn-primary {
+      background: var(--green);
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .btn-primary:hover {
+      background: var(--green-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(45,106,79,0.3);
+    }
+
+    /* App store badges */
+    .app-badges {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+    .app-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--text);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.2s;
+      flex: 1;
+      min-width: 150px;
+      justify-content: center;
+    }
+    .app-badge:hover {
+      background: #2a3530;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+    }
+    .app-badge-icon { font-size: 22px; }
+    .app-badge-text { text-align: left; }
+    .app-badge-sub  { font-size: 10px; opacity: 0.7; display: block; }
+    .app-badge-name { font-size: 14px; font-weight: 700; display: block; }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 28px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .helper-text {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 24px;
+    }
+
+    .helper-text a {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .helper-text a:hover {
+      text-decoration: underline;
+    }
+
+    /* Error state */
+    .error-state {
+      display: none;
+    }
+    .error-state.show {
+      display: block;
+    }
+    .error-state .join-icon {
+      background: #FEE2E2;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: var(--green-dark);
+      color: rgba(255,255,255,0.6);
+      padding: 24px;
+      text-align: center;
+      font-size: 13px;
+    }
+    footer a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+    }
+    footer a:hover {
+      color: #fff;
+    }
+
+    @media (max-width: 500px) {
+      .join-card {
+        padding: 32px 24px;
+      }
+      .app-badges {
+        flex-direction: column;
+      }
+      .app-badge {
+        min-width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="Rally home">
+      <img src="/logo-horizontal.svg" alt="Rally" />
+    </a>
+  </div>
+</nav>
+
+<!-- ── JOIN CONTENT ────────────────────────────────────── -->
+<main class="join-container">
+  <div class="join-card" id="join-card">
+    <div class="join-icon">🤝</div>
+    <h1>You're invited to help</h1>
+    <p class="subtitle">
+      Someone has created a <strong>Rally circle</strong> and invited you to help out. 
+      Download the app to see available tasks and claim the ones you can do.
+    </p>
+
+    <a href="#" class="btn btn-primary" id="open-app-btn">
+      Open in Rally App
+    </a>
+
+    <div class="divider">or download the app</div>
+
+    <div class="app-badges">
+      <a href="#" class="app-badge" id="ios-link">
+        <div class="app-badge-icon">🍎</div>
+        <div class="app-badge-text">
+          <span class="app-badge-sub">Download on the</span>
+          <span class="app-badge-name">App Store</span>
+        </div>
+      </a>
+      <a href="#" class="app-badge" id="android-link">
+        <div class="app-badge-icon">▶</div>
+        <div class="app-badge-text">
+          <span class="app-badge-sub">Get it on</span>
+          <span class="app-badge-name">Google Play</span>
+        </div>
+      </a>
+    </div>
+
+    <p class="helper-text">
+      After installing, the app will automatically take you to this circle.
+      <br><br>
+      <a href="/">Learn more about Rally →</a>
+    </p>
+  </div>
+
+  <!-- Error state -->
+  <div class="join-card error-state" id="error-card">
+    <div class="join-icon">⚠️</div>
+    <h1>Invalid invite link</h1>
+    <p class="subtitle">
+      This invite link doesn't look right. Please ask the organiser to send you a new link.
+    </p>
+    <a href="/" class="btn btn-primary">
+      Visit Rally Homepage
+    </a>
+  </div>
+</main>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer>
+  <span>© 2026 Kyudo Growth Pty Ltd</span>
+  &nbsp;·&nbsp;
+  <a href="/privacy">Privacy</a>
+  &nbsp;·&nbsp;
+  <a href="/terms">Terms</a>
+</footer>
+
+<script>
+  (function() {
+    // Parse token from URL: /join/TOKEN or /join?token=TOKEN
+    const path = window.location.pathname;
+    const params = new URLSearchParams(window.location.search);
+    
+    let token = params.get('token');
+    
+    // Check path format: /join/abc123
+    const pathMatch = path.match(/^\/join\/([a-zA-Z0-9_-]+)$/);
+    if (pathMatch) {
+      token = pathMatch[1];
+    }
+
+    const joinCard = document.getElementById('join-card');
+    const errorCard = document.getElementById('error-card');
+
+    // Validate token
+    if (!token || token.length < 8) {
+      joinCard.style.display = 'none';
+      errorCard.classList.add('show');
+      return;
+    }
+
+    // Build deep link
+    const deepLink = `rally://join/${token}`;
+    const webFallback = `https://rally-around.us/join/${token}`;
+
+    // Set up Open App button
+    const openAppBtn = document.getElementById('open-app-btn');
+    openAppBtn.href = deepLink;
+    
+    // Try to open app, fall back to store
+    openAppBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Store the token in localStorage so app can retrieve it after install
+      localStorage.setItem('rally_join_token', token);
+      
+      // Try deep link
+      const start = Date.now();
+      window.location.href = deepLink;
+      
+      // If still here after 1.5s, app probably isn't installed
+      setTimeout(function() {
+        if (Date.now() - start < 2000) {
+          // Redirect to appropriate store
+          if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            window.location.href = document.getElementById('ios-link').href;
+          } else {
+            window.location.href = document.getElementById('android-link').href;
+          }
+        }
+      }, 1500);
+    });
+
+    // App store links (update these when apps are published)
+    // For now, link to Expo Go for testing
+    document.getElementById('ios-link').href = 'https://apps.apple.com/app/expo-go/id982107779';
+    document.getElementById('android-link').href = 'https://play.google.com/store/apps/details?id=host.exp.exponent';
+
+    // Auto-attempt deep link on mobile if coming from a share
+    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      // Small delay to let the page render
+      setTimeout(function() {
+        // Only auto-redirect if referrer suggests this is a fresh share click
+        // (not someone refreshing the page)
+        if (!document.referrer || !document.referrer.includes('rally-around.us')) {
+          // window.location.href = deepLink; // Uncomment to auto-open app
+        }
+      }, 500);
+    }
+  })();
+</script>
+
+</body>
+</html>
