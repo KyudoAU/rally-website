@@ -1,12 +1,14 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "routes": [
+    { "src": "/join/([^/]+)", "dest": "/join.html" }
+  ],
   "rewrites": [
     { "source": "/support", "destination": "/support.html" },
     { "source": "/privacy", "destination": "/privacy.html" },
     { "source": "/terms", "destination": "/terms.html" },
-    { "source": "/join", "destination": "/join.html" },
-    { "source": "/join/(.*)", "destination": "/join.html" }
+    { "source": "/join", "destination": "/join.html" }
   ],
   "headers": [
     {
