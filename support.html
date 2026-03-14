@@ -4,138 +4,578 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Support — Rally</title>
+  <meta name="description" content="Get help with Rally. Find answers to common questions about circles, tasks, invites, notifications, and more." />
+  <link rel="icon" type="image/svg+xml" href="/logo-mark.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --green: #2D6A4F; --green-light: #52B788; --green-pale: #D8F3DC; --green-dark: #1B4332; --text: #1B1F1E; --muted: #6B7280; --border: #E5E7EB; --bg: #FFFFFF; --bg-subtle: #F8FBF9; }
+
+    :root {
+      /* Brand colours — exact spec */
+      --green:       #2D6A4F;   /* Forest Green — primary */
+      --green-light: #3A8A6B;   /* Light Green */
+      --green-dark:  #1E4F3A;   /* Dark Green */
+      --cream:       #F9F5EF;   /* Cream — brand background */
+      --green-pale:  #E4F2EB;   /* Soft tint for cards/tags */
+      --green-accent:#52B788;   /* Brighter accent for checkmarks etc. */
+      /* Typography & UI */
+      --text:   #1A1F1D;
+      --muted:  #6B7280;
+      --border: #E0E8E4;
+      --bg:     #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
-    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; }
-    .nav-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .nav-logo-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--green); display: flex; align-items: center; justify-content: center; font-size: 20px; }
-    .nav-logo-text { font-size: 20px; font-weight: 800; color: var(--green-dark); }
-    .hero { background: linear-gradient(160deg, var(--bg-subtle) 0%, #EBF5EF 100%); padding: 60px 24px; text-align: center; }
-    .hero h1 { font-size: 40px; font-weight: 900; color: var(--green-dark); margin-bottom: 12px; }
-    .hero p { font-size: 18px; color: var(--muted); max-width: 480px; margin: 0 auto; }
-    .content { max-width: 780px; margin: 0 auto; padding: 64px 24px; }
-    .faq-section { margin-bottom: 48px; }
-    .faq-section h2 { font-size: 22px; font-weight: 800; color: var(--green-dark); margin-bottom: 24px; padding-bottom: 12px; border-bottom: 2px solid var(--green-pale); }
-    .faq-item { margin-bottom: 24px; }
-    .faq-item h3 { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
-    .faq-item p { font-size: 15px; color: var(--muted); line-height: 1.7; }
-    .contact-box { background: var(--green-dark); color: #fff; border-radius: 20px; padding: 40px; text-align: center; margin-top: 48px; }
-    .contact-box h2 { font-size: 24px; font-weight: 800; margin-bottom: 12px; }
-    .contact-box p { opacity: 0.8; margin-bottom: 24px; font-size: 16px; }
-    .btn { display: inline-flex; align-items: center; padding: 12px 28px; border-radius: 10px; font-size: 15px; font-weight: 600; text-decoration: none; background: #52B788; color: #1B4332; }
-    footer { background: var(--green-dark); color: rgba(255,255,255,0.6); padding: 32px 24px; text-align: center; font-size: 13px; }
-    footer a { color: rgba(255,255,255,0.65); text-decoration: none; margin: 0 12px; }
+
+    /* ── NAV ─────────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 66px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0;
+      text-decoration: none; flex-shrink: 0;
+    }
+    .nav-logo img { height: 38px; width: auto; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a {
+      text-decoration: none; font-size: 15px; font-weight: 500;
+      color: var(--muted); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--green); }
+
+    /* ── BUTTONS ─────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px; padding: 10px 22px; border-radius: 10px;
+      font-size: 15px; font-weight: 600; text-decoration: none;
+      transition: all 0.2s; cursor: pointer; border: none;
+    }
+    .btn-primary { background: var(--green); color: #fff; }
+    .btn-primary:hover { background: var(--green-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(45,106,79,0.3); }
+
+    /* ── HERO ────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(165deg, var(--cream) 0%, #EDF5F0 55%, var(--bg) 100%);
+      padding: 72px 24px 64px;
+      text-align: center;
+    }
+    .hero-icon {
+      font-size: 56px;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--green-dark);
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+    .hero p {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ── QUICK LINKS (Mobile Jump Nav) ───────────────── */
+    .quick-links {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: none;
+    }
+    .quick-links-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .quick-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green);
+      background: var(--green-pale);
+      padding: 8px 14px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .quick-link:hover {
+      background: var(--green);
+      color: #fff;
+    }
+    @media (max-width: 640px) {
+      .quick-links { display: block; }
+    }
+
+    /* ── CONTENT ─────────────────────────────────────── */
+    .content {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 64px 24px 88px;
+    }
+
+    /* ── FAQ SECTIONS ────────────────────────────────── */
+    .faq-section {
+      margin-bottom: 56px;
+    }
+    .faq-section h2 {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--green-dark);
+      margin-bottom: 28px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--green-pale);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .faq-section h2::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 24px;
+      background: var(--green);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .faq-item {
+      margin-bottom: 24px;
+      padding-left: 16px;
+    }
+    .faq-item h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .faq-item p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+    .faq-item p strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+    .faq-item ol,
+    .faq-item ul {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-top: 8px;
+      padding-left: 20px;
+    }
+    .faq-item li {
+      margin-bottom: 4px;
+    }
+
+    /* ── CONTACT BOX ─────────────────────────────────── */
+    .contact-box {
+      background: var(--green-dark);
+      color: #fff;
+      border-radius: 24px;
+      padding: 48px 40px;
+      text-align: center;
+      margin-top: 64px;
+    }
+    .contact-box h2 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+    .contact-box p {
+      opacity: 0.82;
+      margin-bottom: 28px;
+      font-size: 17px;
+      line-height: 1.6;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      background: var(--green-accent);
+      color: var(--green-dark);
+      transition: all 0.2s;
+    }
+    .contact-btn:hover {
+      background: #6FCF97;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: var(--green-dark);
+      color: rgba(255,255,255,0.6);
+      padding: 56px 24px 32px;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; align-items: flex-start;
+    }
+    .footer-brand { flex: 1; min-width: 200px; }
+    .footer-logo { height: 34px; width: auto; display: block; margin-bottom: 14px; }
+    .footer-brand p { font-size: 14px; margin-top: 0; line-height: 1.65; max-width: 280px; }
+    .footer-links { display: flex; gap: 48px; flex-wrap: wrap; }
+    .footer-col h4 {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: rgba(255,255,255,0.38); margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block; font-size: 14px; color: rgba(255,255,255,0.62);
+      text-decoration: none; margin-bottom: 10px; transition: color 0.2s;
+    }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      max-width: 1100px; margin: 36px auto 0; padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px; font-size: 13px;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hero { padding: 56px 20px 48px; }
+      .hero-icon { font-size: 44px; }
+      .content { padding: 48px 20px 64px; }
+      .faq-section { margin-bottom: 44px; }
+      .faq-section h2 { font-size: 20px; }
+      .faq-item { padding-left: 8px; }
+      .contact-box { padding: 36px 24px; border-radius: 20px; }
+      .contact-box h2 { font-size: 24px; }
+      .contact-btn { width: 100%; justify-content: center; }
+      .footer-links { flex-direction: column; gap: 28px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
   </style>
 </head>
 <body>
+
+<!-- ── NAV ──────────────────────────────────────────────── -->
 <nav>
   <div class="nav-inner">
-    <a href="/" class="nav-logo">
-      <div class="nav-logo-icon">💚</div>
-      <span class="nav-logo-text">Rally</span>
+    <a href="/" class="nav-logo" aria-label="Rally home">
+      <img src="logo-horizontal.svg" alt="Rally" />
     </a>
-    <a href="mailto:hello@rally-around.us" style="font-size:15px;font-weight:600;color:var(--green);text-decoration:none;">Contact us</a>
+    <div class="nav-links">
+      <a href="/#how-it-works">How it works</a>
+      <a href="/#features">Features</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="/#download" class="btn btn-primary">Download Free</a>
   </div>
 </nav>
 
-<div class="hero">
-  <h1>💚 Support Centre</h1>
-  <p>Answers to common questions about using Rally.</p>
+<!-- ── HERO ─────────────────────────────────────────────── -->
+<section class="hero">
+  <span class="hero-icon">🤝</span>
+  <h1>We're here to help</h1>
+  <p>Answers to common questions about using Rally. Can't find what you need? We're just an email away.</p>
+</section>
+
+<!-- ── QUICK LINKS (Mobile) ─────────────────────────────── -->
+<div class="quick-links">
+  <div class="quick-links-inner">
+    <a href="#getting-started" class="quick-link">Getting started</a>
+    <a href="#tasks-helpers" class="quick-link">Tasks & helpers</a>
+    <a href="#notifications" class="quick-link">Notifications</a>
+    <a href="#account-privacy" class="quick-link">Account</a>
+    <a href="#rally-pro" class="quick-link">Rally Pro</a>
+    <a href="#troubleshooting" class="quick-link">Troubleshooting</a>
+  </div>
 </div>
 
+<!-- ── FAQ CONTENT ──────────────────────────────────────── -->
 <div class="content">
 
-  <div class="faq-section">
+  <!-- Getting Started -->
+  <div class="faq-section" id="getting-started">
     <h2>Getting started</h2>
+
     <div class="faq-item">
       <h3>What is Rally?</h3>
       <p>Rally is a care coordination app that helps you organise support for someone in need. An Organiser creates a "circle" and adds tasks, then invites helpers to claim what they can do. It removes the chaos of group chats and duplicated messages.</p>
     </div>
+
     <div class="faq-item">
       <h3>How do I create a circle?</h3>
       <p>After signing in, tap "Create Circle" on your dashboard. Give your circle a name, choose the situation type, add a description, then start adding tasks. Share the invite link with anyone you want to help.</p>
     </div>
+
     <div class="faq-item">
       <h3>How do I join a circle as a helper?</h3>
       <p>The organiser will share an invite link with you. Tap the link to open Rally, create a free account or sign in, and you'll be added to the circle automatically.</p>
     </div>
+
     <div class="faq-item">
       <h3>Is Rally free?</h3>
       <p>Yes — Rally is free for most people. The free plan includes 1 circle, up to 10 helpers, and up to 20 tasks. Rally Pro ($9/month) removes those limits for complex or ongoing situations.</p>
     </div>
+
+    <div class="faq-item">
+      <h3>What devices does Rally work on?</h3>
+      <p>Rally is available for iPhone (iOS 14+) and Android (8.0+). Download from the App Store or Google Play.</p>
+    </div>
   </div>
 
-  <div class="faq-section">
+  <!-- Tasks & Helpers -->
+  <div class="faq-section" id="tasks-helpers">
     <h2>Tasks &amp; helpers</h2>
+
     <div class="faq-item">
       <h3>How do I add a task?</h3>
       <p>From the Organiser dashboard, tap "+ Add Task". Choose a task type (meal, transport, errand, etc.), add a title, set the date and time, add location details if needed, and save.</p>
     </div>
+
     <div class="faq-item">
       <h3>Can I edit a task after creating it?</h3>
-      <p>Yes. Tap any task on your dashboard to open the details, then tap "Edit Task" to make changes.</p>
+      <p>Yes. Tap any task on your dashboard to open the details, then tap "Edit Task" to make changes. Helpers will see the updated information.</p>
     </div>
+
     <div class="faq-item">
       <h3>What happens when a helper claims a task?</h3>
-      <p>The task moves from "Open" to "Claimed" on your dashboard, and you'll receive a notification. The helper's name will be shown on the task so you always know who has committed to helping.</p>
+      <p>The task moves from "Open" to "Claimed" on your dashboard, and you'll receive a notification. The helper's name will be shown on the task so you always know who has committed.</p>
     </div>
+
     <div class="faq-item">
       <h3>Can a helper release a task they can no longer do?</h3>
-      <p>Yes. Helpers can open the task and tap "Release task" to put it back in the open pool for someone else to claim.</p>
+      <p>Yes. Helpers can open the task and tap "Release task" to put it back in the open pool for someone else to claim. Life happens — no judgement.</p>
     </div>
+
     <div class="faq-item">
-      <h3>How does Google Calendar sync work?</h3>
-      <p>When a helper claims a task, they can optionally sync it to their Google Calendar. The task will appear as a calendar event with all the details. You'll need to grant Rally permission to create calendar events the first time you use this feature.</p>
+      <h3>How do I remove a helper from my circle?</h3>
+      <p>Open your circle settings, go to "Members", find the helper, and tap "Remove". They'll no longer have access to the circle or its tasks.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Can I have multiple organisers for one circle?</h3>
+      <p>Currently, each circle has one organiser. We're considering adding co-organiser support — let us know if this would help you!</p>
     </div>
   </div>
 
-  <div class="faq-section">
+  <!-- Notifications & Calendar -->
+  <div class="faq-section" id="notifications">
+    <h2>Notifications &amp; calendar</h2>
+
+    <div class="faq-item">
+      <h3>How do I turn on push notifications?</h3>
+      <p>Go to Settings in the app → Notifications → toggle on the notification types you want. Make sure notifications are also enabled for Rally in your phone's system settings (Settings → Apps → Rally → Notifications on iOS/Android).</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>I'm not receiving notifications. What should I check?</h3>
+      <p>Three things to check:</p>
+      <ol>
+        <li>In-app: Settings → Notifications are enabled</li>
+        <li>Phone settings: Rally app has notification permission</li>
+        <li>Battery saver/Do Not Disturb isn't blocking them</li>
+      </ol>
+      <p>If notifications still don't arrive, try signing out and back in.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How does Google Calendar sync work?</h3>
+      <p>When a helper claims a task, they can sync it to their Google Calendar. The task will appear as a calendar event with all the details. You'll need to grant Rally permission to create calendar events the first time you use this feature.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Can I sync tasks to Apple Calendar or Outlook?</h3>
+      <p>Currently we support Google Calendar. Apple Calendar and Outlook sync are on our roadmap — contact us if this is important to you.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>A task isn't showing in my calendar. Why?</h3>
+      <p>Check that:</p>
+      <ol>
+        <li>You've connected Google Calendar in Rally settings</li>
+        <li>The task has a date/time set</li>
+        <li>You're looking at the correct Google account's calendar</li>
+      </ol>
+      <p>If it's still missing, try disconnecting and reconnecting your calendar in Settings.</p>
+    </div>
+  </div>
+
+  <!-- Account & Privacy -->
+  <div class="faq-section" id="account-privacy">
     <h2>Account &amp; privacy</h2>
+
     <div class="faq-item">
       <h3>How do I sign in?</h3>
       <p>Rally uses passwordless sign-in. Enter your email address and we'll send you a 6-digit code. Enter the code to sign in — no password to remember.</p>
     </div>
+
     <div class="faq-item">
-      <h3>Can I delete my account?</h3>
-      <p>Yes. Go to Settings → scroll to the bottom → tap "Delete Account". This permanently deletes all your data including your profile, circles, and tasks. This action cannot be undone.</p>
+      <h3>I'm not receiving the sign-in code. What should I do?</h3>
+      <p>Check your spam/junk folder first. If it's not there:</p>
+      <ul>
+        <li>Make sure you're checking the right email account</li>
+        <li>Wait 2 minutes and try again (codes can take a moment to arrive)</li>
+        <li>Check if your email provider is blocking rally-around.us</li>
+      </ul>
+      <p>Still stuck? Email us and we'll help sort it out.</p>
     </div>
+
+    <div class="faq-item">
+      <h3>Can I change my email address?</h3>
+      <p>Yes. Go to Settings → Account → tap your email address to update it. We'll send a verification code to your new email.</p>
+    </div>
+
     <div class="faq-item">
       <h3>Who can see my information?</h3>
       <p>Other circle members can see your display name and the tasks you've claimed or completed. Your email address is never visible to other users. We never sell your data.</p>
     </div>
+
+    <div class="faq-item">
+      <h3>Can I delete my account?</h3>
+      <p>Yes. Go to Settings → scroll to the bottom → tap "Delete Account". This permanently deletes all your data including your profile, circles, and tasks. This action cannot be undone.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What happens to my data if I delete my account?</h3>
+      <p>Everything is permanently deleted — your profile, any circles you organised, your membership in other circles, and all associated tasks. Helpers in your circles will see the circle has been closed.</p>
+    </div>
   </div>
 
-  <div class="faq-section">
+  <!-- Rally Pro -->
+  <div class="faq-section" id="rally-pro">
     <h2>Rally Pro</h2>
+
     <div class="faq-item">
       <h3>What does Rally Pro include?</h3>
       <p>Rally Pro unlocks unlimited circles, unlimited helpers, and unlimited tasks. It also gives you early access to new features as we build them.</p>
     </div>
+
+    <div class="faq-item">
+      <h3>Who should get Rally Pro?</h3>
+      <p>Rally Pro is designed for:</p>
+      <ul>
+        <li>People coordinating ongoing or long-term care</li>
+        <li>Community groups managing multiple situations</li>
+        <li>Anyone who needs more than 1 circle, 10 helpers, or 20 tasks</li>
+      </ul>
+      <p>Most people do fine on the free plan.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How do I upgrade to Rally Pro?</h3>
+      <p>In the app, go to Settings → Rally Pro → tap "Upgrade". Payment is handled through the App Store (iOS) or Google Play (Android).</p>
+    </div>
+
     <div class="faq-item">
       <h3>How do I cancel my subscription?</h3>
-      <p>Rally Pro subscriptions are managed through the App Store (iOS) or Google Play (Android). To cancel, go to your device's subscription settings and cancel the Rally Pro subscription from there. Your Pro access will continue until the end of the current billing period.</p>
+      <p>Rally Pro subscriptions are managed through your device's app store.</p>
+      <ul>
+        <li><strong>iPhone:</strong> Settings → Apple ID → Subscriptions → Rally Pro → Cancel</li>
+        <li><strong>Android:</strong> Play Store → Menu → Subscriptions → Rally → Cancel</li>
+      </ul>
+      <p>Your Pro access continues until the end of the current billing period.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Can I get a refund?</h3>
+      <p>Refunds are handled by Apple or Google, not us directly. Contact Apple Support or Google Play Support to request a refund for your subscription.</p>
     </div>
   </div>
 
-  <div class="contact-box">
+  <!-- Troubleshooting -->
+  <div class="faq-section" id="troubleshooting">
+    <h2>Troubleshooting</h2>
+
+    <div class="faq-item">
+      <h3>The app is crashing or freezing. What should I do?</h3>
+      <p>Try these steps in order:</p>
+      <ol>
+        <li>Force-close the app and reopen it</li>
+        <li>Check for app updates in the App Store / Google Play</li>
+        <li>Restart your phone</li>
+        <li>Uninstall and reinstall Rally</li>
+      </ol>
+      <p>If it's still crashing, email us with your phone model and what you were doing when it crashed.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>My invite link isn't working.</h3>
+      <p>Invite links expire after 7 days. If your link has expired, ask the organiser for a fresh one. If the link shows an error, the circle may have been closed.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>I joined a circle but can't see any tasks.</h3>
+      <p>The organiser may not have added tasks yet, or all tasks may already be claimed. Check with the organiser to confirm tasks are available.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How do I report a bug or give feedback?</h3>
+      <p>We'd love to hear from you! Email us at <a href="mailto:hello@rally-around.us" style="color: var(--green); font-weight: 600;">hello@rally-around.us</a> with details about what happened. Screenshots help.</p>
+    </div>
+  </div>
+
+  <!-- Contact Box -->
+  <div class="contact-box" id="contact">
     <h2>Still need help?</h2>
     <p>We're a small team and we read every message. Drop us an email and we'll get back to you within 24 hours.</p>
-    <a href="mailto:hello@rally-around.us" class="btn">📧 Email us at hello@rally-around.us</a>
+    <a href="mailto:hello@rally-around.us" class="contact-btn">📧 Email us at hello@rally-around.us</a>
   </div>
 
 </div>
 
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
 <footer>
-  <a href="/">Home</a>
-  <a href="/privacy">Privacy Policy</a>
-  <a href="/terms">Terms of Service</a>
-  <br><br>
-  © 2026 Kyudo Growth Pty Ltd · ABN 92 632 421 875
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" aria-label="Rally home">
+        <img src="logo-white.svg" alt="Rally" class="footer-logo" />
+      </a>
+      <p>Care coordination made simple. Bringing people together when it matters most.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="/#how-it-works">How it works</a>
+        <a href="/#features">Features</a>
+        <a href="/#pricing">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="mailto:hello@rally-around.us">Contact us</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Kyudo Growth Pty Ltd · ABN 92 632 421 875</span>
+    <span>Made with 💚 for the people who show up</span>
+  </div>
 </footer>
+
 </body>
 </html>
