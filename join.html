@@ -355,7 +355,9 @@
 
   <!-- Error: Expired token -->
   <div class="join-card hidden" id="error-expired">
-    <div class="join-icon error-icon">⏰</div>
+    <div class="join-icon error-icon">
+      <span class="join-icon-emoji">⏰</span>
+    </div>
     <h1>This invite has expired</h1>
     <p class="subtitle">
       Invite links expire after 7 days. Ask the organiser for a fresh link.
@@ -442,17 +444,20 @@
       return;
     }
 
-    // Fetch circle preview from Supabase
+    // Fetch circle preview from Supabase using secure RPC function
     async function fetchCirclePreview() {
       try {
-        // Query circle by invite_token
+        // Use get_circle_by_invite_token RPC function (RLS-compliant)
         const circleRes = await fetch(
-          `${SUPABASE_URL}/rest/v1/circles?invite_token=eq.${encodeURIComponent(token)}&select=id,name,situation_type,organiser_id,is_active`,
+          `${SUPABASE_URL}/rest/v1/rpc/get_circle_by_invite_token`,
           {
+            method: 'POST',
             headers: {
               'apikey': SUPABASE_ANON_KEY,
-              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
-            }
+              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ token: token })
           }
         );
 
@@ -470,28 +475,31 @@
 
         const circle = circles[0];
 
-        // Check if circle is still active
+        // Check if circle is still active (redundant since RPC filters, but defensive)
         if (!circle.is_active) {
           showCard(errorDeleted);
           return;
         }
 
-        // Get organiser name from circle_members
+        // Get organiser name using RPC function
         const memberRes = await fetch(
-          `${SUPABASE_URL}/rest/v1/circle_members?circle_id=eq.${circle.id}&role=eq.organiser&select=display_name`,
+          `${SUPABASE_URL}/rest/v1/rpc/get_circle_organiser_name`,
           {
+            method: 'POST',
             headers: {
               'apikey': SUPABASE_ANON_KEY,
-              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
-            }
+              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ circle_id: circle.id })
           }
         );
 
         let organiserName = 'Organiser';
         if (memberRes.ok) {
-          const members = await memberRes.json();
-          if (members && members.length > 0) {
-            organiserName = members[0].display_name;
+          const name = await memberRes.json();
+          if (name) {
+            organiserName = name;
           }
         }
 
@@ -507,7 +515,7 @@
 
       } catch (error) {
         console.error('Error fetching circle preview:', error);
-        // Show join card with fallback content
+        // Show join card with fallback content (token valid format, but lookup failed)
         showCard(joinCard);
       }
     }
