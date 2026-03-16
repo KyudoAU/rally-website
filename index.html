@@ -36,10 +36,7 @@
     /* ── NAV ─────────────────────────────────────────── */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
+      background: var(--green);
       padding: 0 24px;
     }
     .nav-inner {
@@ -53,13 +50,13 @@
     }
     .nav-logo { gap: 10px; }
     .nav-logo .logo-icon { height: 36px; width: 36px; border-radius: 8px; }
-    .nav-logo .logo-text { font-size: 22px; font-weight: 800; color: var(--green-dark); letter-spacing: -0.5px; }
+    .nav-logo .logo-text { font-size: 22px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
     .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-links a {
       text-decoration: none; font-size: 15px; font-weight: 500;
-      color: var(--muted); transition: color 0.2s;
+      color: rgba(255,255,255,0.85); transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--green); }
+    .nav-links a:hover { color: #fff; }
 
     /* ── BUTTONS ─────────────────────────────────────── */
     .btn {
@@ -69,6 +66,8 @@
       transition: all 0.2s; cursor: pointer; border: none;
     }
     .btn-primary { background: var(--green); color: #fff; }
+    .btn-nav { background: #fff; color: var(--green); }
+    .btn-nav:hover { background: var(--cream); transform: translateY(-1px); }
     .btn-primary:hover { background: var(--green-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(45,106,79,0.3); }
     .btn-outline { background: transparent; color: var(--green); border: 2px solid var(--green); }
     .btn-outline:hover { background: var(--green-pale); }
@@ -360,7 +359,7 @@
       <a href="#pricing">Beta</a>
       <a href="mailto:hello@rally-around.us">Contact</a>
     </div>
-    <a href="#download" class="btn btn-primary">Download Free</a>
+    <a href="#download" class="btn btn-nav">Download Free</a>
   </div>
 </nav>
 
