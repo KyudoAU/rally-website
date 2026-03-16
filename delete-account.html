@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete Account — Rally</title>
+  <meta name="description" content="How to delete your Rally account and all associated data." />
+  <link rel="icon" type="image/svg+xml" href="/logo-mark.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #2D6A4F;
+      --green-light: #3A8A6B;
+      --green-dark: #1E4F3A;
+      --cream: #F9F5EF;
+      --text: #1A1F1D;
+      --muted: #6B7280;
+      --border: #E0E8E4;
+      --bg: #FFFFFF;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 800px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 66px;
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 38px; width: auto; display: block; }
+
+    .content {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--green-dark);
+      margin-bottom: 16px;
+    }
+    .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin: 32px 0 12px;
+    }
+    p, li {
+      font-size: 16px;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    ol {
+      padding-left: 24px;
+      margin-bottom: 24px;
+    }
+    li { margin-bottom: 12px; }
+    .card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 32px 0;
+    }
+    .card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 8px;
+    }
+    .card p {
+      margin-bottom: 0;
+      font-size: 15px;
+    }
+    a {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      background: var(--green);
+      color: #fff;
+      transition: all 0.2s;
+    }
+    .btn:hover {
+      background: var(--green-dark);
+      text-decoration: none;
+    }
+    .warning {
+      background: #FEF3C7;
+      border: 1px solid #F59E0B;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 24px 0;
+    }
+    .warning p {
+      color: #92400E;
+      margin: 0;
+      font-size: 15px;
+    }
+
+    footer {
+      background: var(--green-dark);
+      color: rgba(255,255,255,0.6);
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 14px;
+    }
+    footer a { color: rgba(255,255,255,0.8); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="Rally home">
+      <img src="logo-horizontal.svg" alt="Rally" />
+    </a>
+  </div>
+</nav>
+
+<div class="content">
+  <h1>Delete Your Account</h1>
+  <p class="subtitle">We're sorry to see you go. Here's how to permanently delete your Rally account and all associated data.</p>
+
+  <h2>Delete from the App</h2>
+  <p>The fastest way to delete your account is directly in the Rally app:</p>
+  <ol>
+    <li>Open the Rally app and sign in</li>
+    <li>Go to <strong>Settings</strong> (tap the gear icon)</li>
+    <li>Scroll to the bottom and tap <strong>Delete Account</strong></li>
+    <li>Confirm your decision when prompted</li>
+  </ol>
+
+  <div class="warning">
+    <p><strong>⚠️ This action is permanent.</strong> Deleting your account will immediately remove your profile, any circles you've created, and all associated data. This cannot be undone.</p>
+  </div>
+
+  <h2>Request Deletion via Email</h2>
+  <p>If you can't access the app or need assistance, you can request account deletion by email:</p>
+  
+  <div class="card">
+    <h3>📧 Contact Support</h3>
+    <p>Email <a href="mailto:hello@rally-around.us?subject=Account%20Deletion%20Request">hello@rally-around.us</a> with the subject "Account Deletion Request" and include the email address associated with your Rally account.</p>
+  </div>
+
+  <p>We'll process your request within 48 hours and send confirmation once your account has been deleted.</p>
+
+  <h2>What Gets Deleted</h2>
+  <p>When you delete your account, we permanently remove:</p>
+  <ol>
+    <li>Your profile and email address</li>
+    <li>Any care circles you created</li>
+    <li>All tasks you created or claimed</li>
+    <li>Your membership in other people's circles</li>
+  </ol>
+
+  <p style="margin-top: 40px;">
+    <a href="/" class="btn">← Back to Rally</a>
+  </p>
+</div>
+
+<footer>
+  <p>© 2026 Kyudo Growth Pty Ltd · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a></p>
+</footer>
+
+</body>
+</html>
