@@ -335,7 +335,7 @@
     </div>
 
     <p class="helper-text">
-      After installing, the app will automatically take you to this circle.
+      After installing, open Rally and tap <strong>"Join a Circle"</strong> — your invite link will be ready to use.
       <br><br>
       <a href="/">Learn more about Rally →</a>
     </p>
@@ -536,9 +536,16 @@
         const start = Date.now();
         window.location.href = deepLink;
         
-        // If still here after 1.5s, app probably isn't installed
+        // If still here after 1.5s, app probably isn't installed — copy invite URL
+        // to clipboard so the app can detect it on first launch, then redirect to store
         setTimeout(function() {
           if (Date.now() - start < 2000) {
+            const inviteUrl = 'https://rally-around.us/join/' + token;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(inviteUrl).catch(function() {
+                // Clipboard write failed — user may need to manually enter the code
+              });
+            }
             // Redirect to appropriate store
             if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
               window.location.href = document.getElementById('ios-link').href;
@@ -553,6 +560,24 @@
       // For now, link to Expo Go for testing
       document.getElementById('ios-link').href = 'https://apps.apple.com/app/expo-go/id982107779';
       document.getElementById('android-link').href = 'https://play.google.com/store/apps/details?id=host.exp.exponent';
+
+      // Copy invite URL to clipboard when tapping app store badges directly
+      function copyAndRedirect(e) {
+        var href = this.href;
+        e.preventDefault();
+        var inviteUrl = 'https://rally-around.us/join/' + token;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(inviteUrl).then(function() {
+            window.location.href = href;
+          }).catch(function() {
+            window.location.href = href;
+          });
+        } else {
+          window.location.href = href;
+        }
+      }
+      document.getElementById('ios-link').addEventListener('click', copyAndRedirect);
+      document.getElementById('android-link').addEventListener('click', copyAndRedirect);
     }
 
     // Initialize
