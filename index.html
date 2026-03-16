@@ -51,7 +51,9 @@
       display: flex; align-items: center; gap: 0;
       text-decoration: none; flex-shrink: 0;
     }
-    .nav-logo img { height: 38px; width: auto; display: block; }
+    .nav-logo { gap: 10px; }
+    .nav-logo .logo-icon { height: 32px; width: 32px; }
+    .nav-logo .logo-wordmark { height: 28px; width: auto; }
     .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-links a {
       text-decoration: none; font-size: 15px; font-weight: 500;
@@ -311,7 +313,9 @@
       display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; align-items: flex-start;
     }
     .footer-brand { flex: 1; min-width: 200px; }
-    .footer-logo { height: 34px; width: auto; display: block; margin-bottom: 14px; }
+    .footer-brand-link { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; text-decoration: none; }
+    .footer-icon { height: 32px; width: 32px; }
+    .footer-logo { height: 28px; width: auto; display: block; }
     .footer-brand p { font-size: 14px; margin-top: 0; line-height: 1.65; max-width: 280px; }
     .footer-links { display: flex; gap: 48px; flex-wrap: wrap; }
     .footer-col h4 {
@@ -347,7 +351,8 @@
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-logo" aria-label="Rally home">
-      <img src="logo-horizontal.svg" alt="Rally" />
+      <img src="favicon.png" alt="" class="logo-icon" aria-hidden="true" />
+      <img src="logo-horizontal.svg" alt="Rally" class="logo-wordmark" />
     </a>
     <div class="nav-links">
       <a href="#how-it-works">How it works</a>
@@ -607,7 +612,8 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <a href="/" aria-label="Rally home">
+      <a href="/" aria-label="Rally home" class="footer-brand-link">
+        <img src="favicon.png" alt="" class="footer-icon" aria-hidden="true" />
         <img src="logo-white.svg" alt="Rally" class="footer-logo" />
       </a>
       <p>Care coordination made simple. Bringing people together when it matters most.</p>
