@@ -5,27 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy | Rally</title>
   <meta name="description" content="Rally Privacy Policy - How we handle your data.">
-  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #2D6A4F;
+      --green-dark: #1E4F3A;
+      --cream: #F9F5EF;
+      --green-pale: #E4F2EB;
+      --text: #1A1F1D;
+      --muted: #6B7280;
+      --border: #E0E8E4;
+      --bg: #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      background: #F8FBF9;
-      color: #1B1F1E;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.7;
     }
-    header {
-      background: #2D6A4F;
-      padding: 20px 24px;
+
+    /* ── NAV ─────────────────────────────────────────── */
+    nav {
+      background: var(--green);
+      padding: 0 24px;
     }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 66px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
       text-decoration: none;
     }
-    .logo-emoji { font-size: 28px; }
-    .logo-text { font-size: 22px; font-weight: 800; color: #fff; }
+    .nav-logo .logo-icon { height: 36px; width: 36px; border-radius: 8px; }
+    .nav-logo .logo-text { font-size: 22px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+
+    /* ── MAIN ────────────────────────────────────────── */
     main {
       max-width: 720px;
       margin: 0 auto;
@@ -34,18 +56,18 @@
     h1 {
       font-size: 36px;
       font-weight: 800;
-      color: #1B1F1E;
+      color: var(--text);
       margin-bottom: 8px;
     }
     .last-updated {
       font-size: 14px;
-      color: #6B7280;
+      color: var(--muted);
       margin-bottom: 32px;
     }
     h2 {
       font-size: 20px;
       font-weight: 700;
-      color: #2D6A4F;
+      color: var(--green);
       margin: 32px 0 12px;
     }
     p, li {
@@ -58,10 +80,10 @@
       margin-bottom: 16px;
     }
     li { margin-bottom: 8px; }
-    a { color: #2D6A4F; }
+    a { color: var(--green); }
     .highlight {
-      background: #ECFDF5;
-      border-left: 4px solid #2D6A4F;
+      background: var(--green-pale);
+      border-left: 4px solid var(--green);
       padding: 16px 20px;
       border-radius: 0 8px 8px 0;
       margin: 24px 0;
@@ -75,79 +97,118 @@
     th, td {
       text-align: left;
       padding: 12px;
-      border-bottom: 1px solid #E5E7EB;
+      border-bottom: 1px solid var(--border);
       font-size: 15px;
     }
     th {
       background: #F3F4F6;
       font-weight: 600;
-      color: #1B1F1E;
+      color: var(--text);
     }
     td { color: #4B5563; }
+
+    /* ── FOOTER ──────────────────────────────────────── */
     footer {
-      text-align: center;
+      background: var(--green-dark);
+      color: rgba(255,255,255,0.6);
       padding: 32px 24px;
-      border-top: 1px solid #E5E7EB;
     }
-    footer p { font-size: 14px; color: #9CA3AF; margin: 0; }
-    footer a { color: #2D6A4F; text-decoration: none; }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: center;
+    }
+    .footer-links {
+      display: flex; gap: 24px; flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 14px; color: rgba(255,255,255,0.7);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #fff; }
     .footer-social {
-      display: flex; justify-content: center; gap: 12px; margin-top: 16px;
+      display: flex; gap: 12px;
     }
     .footer-social a {
       display: flex; align-items: center; justify-content: center;
       width: 36px; height: 36px; border-radius: 8px;
-      background: #F3F4F6; color: #6B7280;
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.7);
       text-decoration: none; transition: all 0.2s;
     }
-    .footer-social a:hover { background: #2D6A4F; color: #fff; }
+    .footer-social a:hover { background: rgba(255,255,255,0.2); color: #fff; }
     .footer-social svg { width: 18px; height: 18px; fill: currentColor; }
+    .footer-bottom {
+      max-width: 1100px; margin: 20px auto 0; padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center; font-size: 13px;
+    }
+
+    @media (max-width: 640px) {
+      main { padding: 32px 20px 60px; }
+      h1 { font-size: 28px; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <a href="/" class="logo">
-      <span class="logo-emoji">💚</span>
-      <span class="logo-text">Rally</span>
-    </a>
-  </header>
+  <!-- ── NAV ──────────────────────────────────────────────── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="Rally home">
+        <img src="favicon.png" alt="" class="logo-icon" aria-hidden="true" />
+        <span class="logo-text">Rally</span>
+      </a>
+    </div>
+  </nav>
 
   <main>
     <h1>Privacy Policy</h1>
-    <p class="last-updated">Last updated: March 14, 2026</p>
+    <p class="last-updated">Last updated: March 17, 2026</p>
 
     <div class="highlight">
       <p><strong>The short version:</strong> We collect only what we need to run Rally. We don't sell your data. We don't track you across the internet. Your care circle information stays private.</p>
     </div>
 
     <h2>Who We Are</h2>
-    <p>Rally is operated by Kyudo Growth Pty Ltd (ABN pending), based in Queensland, Australia. When we say "Rally", "we", or "us", we mean Kyudo Growth.</p>
+    <p>Rally is operated by Kyudo Growth Pty Ltd (ABN 92 632 421 875), based in Queensland, Australia. When we say "Rally", "we", or "us", we mean Kyudo Growth Pty Ltd.</p>
+    <p>We are committed to handling your personal information in accordance with the Privacy Act 1988 (Cth) and the Australian Privacy Principles (APPs).</p>
 
     <h2>What We Collect</h2>
     <table>
       <tr>
         <th>Data</th>
         <th>Why We Need It</th>
+        <th>Lawful Basis</th>
       </tr>
       <tr>
         <td>Email address</td>
         <td>Sign-in, account verification, notifications</td>
+        <td>Consent; necessary for service delivery</td>
       </tr>
       <tr>
         <td>Display name</td>
         <td>Shown to your circle so they know who you are</td>
+        <td>Consent; necessary for service delivery</td>
       </tr>
       <tr>
-        <td>Circle & task data</td>
+        <td>Circle and task data</td>
         <td>Core app functionality</td>
+        <td>Necessary for service delivery</td>
       </tr>
       <tr>
         <td>Device push token</td>
         <td>Send you task reminders and updates</td>
+        <td>Consent</td>
       </tr>
       <tr>
         <td>Device install ID</td>
         <td>Recognise your device for seamless access</td>
+        <td>Legitimate interest</td>
+      </tr>
+      <tr>
+        <td>Aggregate usage data</td>
+        <td>Understand how Rally is used so we can improve it (no individual identification)</td>
+        <td>Legitimate interest</td>
       </tr>
     </table>
 
@@ -156,86 +217,112 @@
       <li>Your location (unless you manually enter it for a task)</li>
       <li>Your contacts or phone number</li>
       <li>Photos or media from your device</li>
-      <li>Browsing history or app usage patterns</li>
-      <li>Payment information (handled by Apple/Google)</li>
+      <li>Browsing history or app usage patterns that identify you</li>
+      <li>Payment or credit card information (all payments are handled by Apple and Google)</li>
+      <li>Health or medical information (Rally coordinates tasks, not care itself)</li>
     </ul>
 
     <h2>How We Use Your Data</h2>
     <p>We use your data to:</p>
     <ul>
       <li>Run the Rally app and sync your circles</li>
-      <li>Send you task reminders you've opted into</li>
+      <li>Send you task reminders you have opted into</li>
       <li>Notify you when helpers claim or complete tasks</li>
-      <li>Improve Rally based on aggregate, anonymous usage</li>
+      <li>Improve Rally based on aggregate, anonymous usage patterns</li>
       <li>Respond to support requests</li>
+      <li>Comply with legal obligations</li>
     </ul>
+    <p>We do not use your data for profiling, automated decision-making, or targeted advertising.</p>
 
     <h2>Who Sees Your Data</h2>
     <ul>
       <li><strong>Your circle members</strong> see your display name and tasks you interact with</li>
-      <li><strong>Service providers</strong> who help us run Rally (hosting, email delivery) — bound by confidentiality</li>
-      <li><strong>Nobody else</strong> — we don't sell, rent, or share your data with advertisers or data brokers</li>
+      <li><strong>Cloud infrastructure providers</strong> (Supabase for database hosting; Vercel for web hosting) process your data under strict data processing agreements</li>
+      <li><strong>Transactional email providers</strong> deliver notifications on our behalf under data processing agreements</li>
+      <li><strong>Nobody else</strong> — we do not sell, rent, or share your data with advertisers, data brokers, or any other third parties</li>
     </ul>
 
     <h2>Where We Store Data</h2>
-    <p>Your data is stored on Supabase (database) and Vercel (website), with servers primarily in the US and Australia. We use industry-standard encryption in transit and at rest.</p>
+    <p>Your data is stored on Supabase (database) and Vercel (web hosting), with servers located in the United States and Australia.</p>
+    <p>Where your data is transferred outside Australia, we take reasonable steps to ensure the overseas recipient handles your information consistently with the Australian Privacy Principles, in accordance with APP 8. Our service providers are bound by data processing agreements that require them to protect your information to standards equivalent to or exceeding Australian requirements.</p>
 
     <h2>Data Retention</h2>
     <ul>
-      <li><strong>Active accounts:</strong> Data kept while your account is active</li>
-      <li><strong>Deleted accounts:</strong> Data deleted within 30 days of account deletion</li>
-      <li><strong>Completed circles:</strong> Archived after 12 months of inactivity</li>
+      <li><strong>Active accounts:</strong> Data is retained while your account is active and for the period necessary to fulfil the purposes described in this policy</li>
+      <li><strong>Deleted accounts:</strong> Personal data is deleted within 30 days of account deletion. Anonymised, aggregate data may be retained for product improvement</li>
+      <li><strong>Inactive circles:</strong> Archived after 12 months of inactivity. You will be notified before archival</li>
     </ul>
+
+    <h2>Data Security</h2>
+    <p>We use industry-standard measures to protect your data, including encryption in transit (TLS) and at rest, access controls limiting who within our organisation can view personal data, and regular review of our security practices.</p>
+    <p>No system is completely secure. If you believe your account has been compromised, please contact us immediately at <a href="mailto:privacy@rally-around.us">privacy@rally-around.us</a>.</p>
+
+    <h2>Data Breach Notification</h2>
+    <p>In the event of a data breach that is likely to result in serious harm to you, we will notify affected users as soon as practicable and no later than 30 days after becoming aware of the breach. Where required, we will also notify the Office of the Australian Information Commissioner (OAIC) in accordance with the Notifiable Data Breaches scheme under Part IIIC of the Privacy Act 1988.</p>
 
     <h2>Your Rights</h2>
-    <p>You can:</p>
+    <p>Under the Australian Privacy Principles, you have the right to:</p>
     <ul>
-      <li><strong>Access</strong> your data — see what we have about you</li>
-      <li><strong>Correct</strong> your data — update your name or email</li>
-      <li><strong>Delete</strong> your account — removes your data from our systems</li>
-      <li><strong>Export</strong> your data — request a copy of your information</li>
+      <li><strong>Access</strong> your personal information that we hold</li>
+      <li><strong>Correct</strong> your personal information if it is inaccurate, incomplete, or out of date</li>
+      <li><strong>Delete</strong> your account and have your personal data removed from our systems</li>
+      <li><strong>Export</strong> your data in a portable format</li>
+      <li><strong>Withdraw consent</strong> for optional data processing (such as push notifications) at any time</li>
+      <li><strong>Complain</strong> to the OAIC if you believe we have breached your privacy</li>
     </ul>
-    <p>To exercise these rights, email <a href="mailto:privacy@rally-around.us">privacy@rally-around.us</a></p>
+    <p>To exercise these rights, email <a href="mailto:privacy@rally-around.us">privacy@rally-around.us</a>. We will respond within 30 days.</p>
+    <p>If you are located in the European Union or the United Kingdom, you may also have rights under the General Data Protection Regulation (GDPR) or UK GDPR, including the right to data portability and the right to lodge a complaint with your local supervisory authority.</p>
 
-    <h2>Cookies & Tracking</h2>
-    <p>The Rally website uses minimal cookies for functionality (like staying signed in). We don't use advertising trackers, social media pixels, or analytics that identify individuals.</p>
+    <h2>Cookies and Tracking</h2>
+    <p>The Rally website uses essential cookies only, for functionality such as keeping you signed in. We do not use advertising trackers, social media pixels, or analytics tools that identify individual users.</p>
 
     <h2>Children's Privacy</h2>
-    <p>Rally is not intended for children under 16. We don't knowingly collect data from children. If you believe a child has provided us data, please contact us.</p>
+    <p>Rally is not intended for children under 13. We do not knowingly collect personal information from children under 13. If you believe a child under 13 has provided us with personal information, please contact us at <a href="mailto:privacy@rally-around.us">privacy@rally-around.us</a> and we will delete that information promptly.</p>
+    <p>Users aged 13 to 17 may use Rally with parental or guardian consent.</p>
+
+    <h2>Google Play and Apple App Store</h2>
+    <p>Rally is distributed through the Google Play Store and the Apple App Store. The data we collect, as described in this policy, aligns with our declarations in the Google Play Data Safety section and the Apple App Privacy labels. If you have questions about how our declarations map to this policy, please contact us.</p>
 
     <h2>Changes to This Policy</h2>
-    <p>We may update this policy occasionally. Significant changes will be communicated via email or in-app notification. Continued use after changes means you accept the updated policy.</p>
+    <p>We may update this policy from time to time. For material changes that affect how we collect, use, or share your personal information, we will notify you by email or in-app notification at least 14 days before the changes take effect. For material changes, we will seek your active consent before continuing to process your data under the updated terms.</p>
+    <p>Non-material changes (such as clarifications or formatting updates) take effect when posted. The "Last updated" date at the top of this page will always reflect the most recent revision.</p>
 
     <h2>Contact Us</h2>
-    <p>Privacy questions? Contact our privacy team:</p>
+    <p>Privacy questions or requests? Contact us:</p>
     <ul>
       <li>Email: <a href="mailto:privacy@rally-around.us">privacy@rally-around.us</a></li>
-      <li>Mail: Kyudo Growth Pty Ltd, Brisbane, QLD, Australia</li>
+      <li>Mail: Kyudo Growth Pty Ltd, Brisbane, QLD 4000, Australia</li>
     </ul>
+    <p>If you are not satisfied with our response, you may lodge a complaint with the <a href="https://www.oaic.gov.au/" target="_blank" rel="noopener">Office of the Australian Information Commissioner</a>.</p>
 
     <div class="highlight">
       <p>Your privacy matters. We built Rally to help people, not to harvest data.</p>
     </div>
   </main>
 
+  <!-- ── FOOTER ──────────────────────────────────────────────── -->
   <footer>
-    <p>
-      <a href="/">Home</a> · 
-      <a href="/terms">Terms & Conditions</a> · 
-      <a href="/support">Help Centre</a>
-    </p>
-    <div class="footer-social">
-      <a href="https://www.facebook.com/profile.php?id=61582209856243" target="_blank" rel="noopener" aria-label="Facebook">
-        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      </a>
-      <a href="https://instagram.com/rallycareapp" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-      </a>
-      <a href="https://x.com/rallyaroundapp" target="_blank" rel="noopener" aria-label="X (Twitter)">
-        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      </a>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/terms.html">Terms of Service</a>
+        <a href="/support.html">Help Centre</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/profile.php?id=61582209856243" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://instagram.com/rallycareapp" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://x.com/rallyaroundapp" target="_blank" rel="noopener" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+      </div>
     </div>
-    <p style="margin-top: 12px;">© 2026 Rally. Made with 💚</p>
+    <div class="footer-bottom">
+      <span>© 2026 Kyudo Growth Pty Ltd · ABN 92 632 421 875 · Made with 💚 for the people who show up</span>
+    </div>
   </footer>
 </body>
 </html>
