@@ -5,9 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Join a Rally Circle</title>
   <meta name="description" content="You've been invited to help someone in need. Download Rally to join this care circle." />
+  <meta name="robots" content="noindex, nofollow" />
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rally-around.us/join/" />
   <meta property="og:title" content="You're invited to Rally" />
   <meta property="og:description" content="Someone needs your help. Join this care circle and claim tasks you can help with." />
   <meta property="og:image" content="https://rally-around.us/images/og-image.png" />
+  
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/svg+xml" href="/logo-mark.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -461,8 +468,8 @@
       cardEl.classList.remove('hidden');
     }
 
-    // Validate token format
-    if (!token || token.length < 8) {
+    // Validate token format (minimum 6 chars to allow test tokens like TEST123)
+    if (!token || token.length < 6) {
       showCard(errorInvalid);
       return;
     }
