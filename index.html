@@ -3,12 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rally — Care coordination made simple</title>
-  <meta name="description" content="Rally brings your community together when someone needs help. Organise care, coordinate helpers, and manage tasks — all in one place." />
-  <meta property="og:title" content="Rally — Care coordination made simple" />
-  <meta property="og:description" content="When someone you love needs support, Rally helps you coordinate it without the chaos." />
+  <title>Rally — Help made easy.</title>
+  <meta name="description" content="Rally coordinates support when someone you love is going through a hard time. Create a circle, add what would help, share the link. Your community does the rest." />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rally-around.us/" />
+  <meta property="og:title" content="Rally — Turn offers of help into action." />
+  <meta property="og:description" content="Rally coordinates support when someone you love is going through a hard time. Create a circle, add what would help, share the link." />
   <meta property="og:image" content="https://rally-around.us/images/og-image.png" />
+  <meta property="og:site_name" content="Rally" />
+  
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://rally-around.us/" />
+  <meta name="twitter:title" content="Rally — Turn offers of help into action." />
+  <meta name="twitter:description" content="Rally coordinates support when someone you love is going through a hard time. Create a circle, add what would help, share the link." />
+  <meta name="twitter:image" content="https://rally-around.us/images/og-image.png" />
+  
+  <!-- Additional SEO -->
+  <meta name="keywords" content="community support, family help, care coordination, help coordination, support circle, hard times" />
+  <meta name="author" content="Rally" />
+  <link rel="canonical" href="https://rally-around.us/" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -20,7 +36,8 @@
       --green:       #2D6A4F;   /* Forest Green — primary */
       --green-light: #3A8A6B;   /* Light Green */
       --green-dark:  #1E4F3A;   /* Dark Green */
-      --cream:       #F9F5EF;   /* Cream — brand background */
+      --amber:       #F4A261;   /* Amber — brand accent */
+      --cream:       #FAFDF9;   /* Brand background */
       --green-pale:  #E4F2EB;   /* Soft tint for cards/tags */
       --green-accent:#52B788;   /* Brighter accent for checkmarks etc. */
       /* Typography & UI */
@@ -369,7 +386,7 @@
       <a href="#pricing">Pricing</a>
       <a href="mailto:hello@rally-around.us">Contact</a>
     </div>
-    <a href="#download" class="btn btn-nav">Download Free</a>
+    <a href="#download" class="btn btn-nav">Get started free</a>
   </div>
 </nav>
 
@@ -377,12 +394,12 @@
 <section class="hero">
   <div class="hero-badge">
     <span class="hero-badge-dot"></span>
-    Care coordination, simplified
+    Turn offers of help into action.
   </div>
-  <h1>When life gets hard,<br><span>Rally your people</span></h1>
-  <p class="hero-sub">Rally helps you organise community support for someone in need — without the endless group chats, missed messages, and duplicated effort.</p>
+  <h1>Turn "let me know if you<br>need anything" into<br><span>actual help.</span></h1>
+  <p class="hero-sub">Rally coordinates support when someone you love is going through a hard time. Create a circle, add what would help, share the link. Your community does the rest.</p>
   <div class="hero-cta">
-    <a href="#download" class="btn btn-primary btn-xl">Get the app — it's free</a>
+    <a href="#download" class="btn btn-primary btn-xl">Start a Rally →</a>
     <a href="#how-it-works" class="btn btn-outline btn-xl">See how it works</a>
   </div>
   <div class="app-badges" id="download">
@@ -420,9 +437,9 @@
       <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
     </div>
     <div class="social-divider"></div>
-    <span class="social-text">Helping real families coordinate real care</span>
+    <span class="social-text">Real people showing up for each other</span>
     <div class="social-divider"></div>
-    <p>Trusted by carers, families &amp; communities</p>
+    <p>Families, friends &amp; communities who show up</p>
   </div>
 </div>
 
@@ -502,8 +519,8 @@
 <section class="section">
   <div class="section-inner">
     <div class="section-tag">Who it's for</div>
-    <h2 class="section-title">Built for life's<br>hardest moments.</h2>
-    <p class="section-sub">Any situation where a community wants to show up — Rally makes it happen.</p>
+    <h2 class="section-title">You shouldn't have to<br>manage hard times alone.</h2>
+    <p class="section-sub">Whenever your people want to show up for someone — Rally makes it easy.</p>
     <div class="personas">
       <div class="persona">
         <div class="persona-icon">🏥</div>
@@ -558,7 +575,7 @@
           <li class="pricing-feature">Push notifications</li>
           <li class="pricing-feature">Task reminders</li>
         </ul>
-        <a href="#download" class="btn btn-outline" style="width:100%; justify-content:center;">Download Free</a>
+        <a href="#download" class="btn btn-outline" style="width:100%; justify-content:center;">Start a Rally — free</a>
       </div>
       <!-- Premium Monthly -->
       <div class="pricing-card" style="text-align:center;">
@@ -628,7 +645,7 @@
         <img src="favicon.png" alt="" class="footer-icon" aria-hidden="true" />
         <span class="footer-text">Rally</span>
       </a>
-      <p>Care coordination made simple. Bringing people together when it matters most.</p>
+      <p>Turn offers of help into action. Bringing people together when it matters most.</p>
       <div class="footer-social">
         <a href="https://www.facebook.com/profile.php?id=61582209856243" target="_blank" rel="noopener" aria-label="Facebook">
           <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -672,4 +689,3 @@
 
 </body>
 </html>
-/html>
