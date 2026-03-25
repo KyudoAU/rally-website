@@ -1,31 +1,10 @@
-<svg width="480" height="120" viewBox="0 0 480 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- White version — for dark/green backgrounds -->
-  <defs>
-    <filter id="shW" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.15"/>
-    </filter>
-  </defs>
-
-  <!-- Heart mark (outline style) -->
-  <path
-    d="M60 91
-       C 58 90, 22 70, 20 46
-       C 18 30, 30 20, 43 21
-       C 51 22, 58 27, 60 32
-       C 62 27, 69 22, 77 21
-       C 90 20, 102 30, 100 46
-       C 98 70, 62 90, 60 91 Z"
-    fill="white"
-    filter="url(#shW)"
-  />
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" width="280" height="80">
+  <!-- Icon mark -->
+  <rect x="0" y="0" width="80" height="80" rx="18" fill="white" fill-opacity="0.15"/>
+  <path d="M 14 58 Q 8 36 26 22 Q 34 18 40 24" fill="none" stroke="white" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M 66 58 Q 72 36 54 22 Q 46 18 40 24" fill="none" stroke="white" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M 14 58 Q 27 70 40 72 Q 53 70 66 58" fill="none" stroke="white" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M 40 44 C 40 44 30 36 30 30 C 30 26 34 24 37 25 C 38.5 25.5 40 27 40 27 C 40 27 41.5 25.5 43 25 C 46 24 50 26 50 30 C 50 36 40 44 40 44 Z" fill="white"/>
   <!-- Wordmark -->
-  <text
-    x="122" y="76"
-    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
-    font-size="52"
-    font-weight="700"
-    letter-spacing="-1.5"
-    fill="white"
-  >Rally</text>
+  <text x="96" y="54" font-family="'Inter', -apple-system, sans-serif" font-size="42" font-weight="800" fill="white" letter-spacing="-1">Rally</text>
 </svg>
